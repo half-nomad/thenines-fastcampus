@@ -22,7 +22,7 @@ npm start
 ## 📁 프로젝트 구조
 
 ```
-thenines-website/
+thenines-fastcampus/
 ├── app/                    # Next.js App Router
 ├── components/             # 재사용 가능한 컴포넌트
 ├── lib/                    # 유틸리티 함수

@@ -48,7 +48,7 @@
 ## 2. 프로젝트 폴더 구조
 
 ```
-fc-thenines/
+thenines-fastcampus/
 ├── app/                          # Next.js App Router
 │   ├── page.tsx                  # 메인 페이지
 │   ├── services/
