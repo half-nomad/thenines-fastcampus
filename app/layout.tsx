@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { DEFAULT_SEO } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "The Nines - 아시아 크리에이터 마케팅 전문",
-  description: "진짜 아시아 시장을 위한 크리에이터 마케팅 솔루션",
+  title: DEFAULT_SEO.title,
+  description: DEFAULT_SEO.description,
+  keywords: DEFAULT_SEO.keywords,
+  openGraph: {
+    title: DEFAULT_SEO.title,
+    description: DEFAULT_SEO.description,
+    images: [DEFAULT_SEO.ogImage],
+    type: 'website',
+    locale: 'ko_KR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_SEO.title,
+    description: DEFAULT_SEO.description,
+    images: [DEFAULT_SEO.ogImage],
+  },
 };
 
 export default function RootLayout({
@@ -13,8 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+        />
+      </head>
       <body>
-        {children}
+        <Header />
+        <main className="pt-20">{children}</main>
+        <Footer />
       </body>
     </html>
   );

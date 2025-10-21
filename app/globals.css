@@ -1,27 +1,98 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 배경 색상 */
+  --color-background: #0F0F0F;
+  --color-background-secondary: #1A1A1A;
+  --color-background-light: #FFFFFF;
+
+  /* 텍스트 색상 */
+  --color-foreground: #FFFFFF;
+  --color-foreground-secondary: #A0A0A0;
+  --color-foreground-dark: #111827;
+
+  /* 브랜드 색상 */
+  --color-primary-blue: #3B82F6;
+  --color-primary-purple: #8B5CF6;
+
+  /* 상태 색상 */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #DC2626;
+
+  /* 폰트 패밀리 */
+  --font-family-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'system-ui', sans-serif;
+
+  /* 애니메이션 */
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes gradient {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* 마크다운 스타일 (블로그용) */
+.prose-custom {
+  color: var(--color-foreground-secondary);
+}
+
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  color: var(--color-foreground);
+  font-weight: 700;
+}
+
+.prose-custom a {
+  color: var(--color-primary-blue);
+  transition: color 0.2s;
+}
+
+.prose-custom a:hover {
+  color: var(--color-primary-purple);
+}
+
+.prose-custom code {
+  background-color: var(--color-background-secondary);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.prose-custom pre {
+  background-color: var(--color-background-secondary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
 }
